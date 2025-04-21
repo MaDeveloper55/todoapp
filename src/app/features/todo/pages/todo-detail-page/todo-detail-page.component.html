@@ -1,0 +1,20 @@
+@if (selectedList) {
+  <div class="page">
+    <button class="back" [routerLink]="['/todos']">← Back to Lists</button>
+    <h1>{{ selectedList.title }}</h1>
+    <app-add-task (create)="onAddTask($event)"></app-add-task>
+    @if (selectedList.tasks.length === 0) {
+      <div>
+        <p>No tasks yet. Add one above!</p>
+      </div>
+    }
+
+    <div class="tasks">
+      @for (task of selectedList.tasks; track task.id) {
+        <app-todo-item [task]="task" (toggle)="onToggle(task.id)"></app-todo-item>
+      }
+    </div>
+  </div>
+} @else {
+  <p>List not found.</p>
+}

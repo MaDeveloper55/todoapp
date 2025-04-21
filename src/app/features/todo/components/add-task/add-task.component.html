@@ -1,0 +1,13 @@
+<form (ngSubmit)="add()" class="add-task-form">
+  <mat-form-field appearance="fill">
+    <mat-label>Task Title</mat-label>
+    <input matInput type="text" [(ngModel)]="title" name="title" required />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Description</mat-label>
+    <input matInput type="text" [(ngModel)]="description" name="description" />
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit">Add Task</button>
+</form>

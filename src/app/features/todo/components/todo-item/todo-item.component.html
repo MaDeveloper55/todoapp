@@ -1,0 +1,10 @@
+<mat-card class="task-item">
+  <mat-checkbox [checked]="task?.completed" (change)="toggle.emit(task?.id)" color="primary">
+    Completed
+  </mat-checkbox>
+
+  <div class="details">
+    <h3 [class.completed]="task?.completed">{{ task?.title }}</h3>
+    <p>{{ task?.description }}</p>
+  </div>
+</mat-card>

@@ -1,0 +1,30 @@
+<div class="page">
+  <h1>📝 To-Do Lists</h1>
+  <form (ngSubmit)="addList()" class="add-list-form">
+    <mat-form-field appearance="outline">
+      <mat-label>New List Title</mat-label>
+      <input matInput [(ngModel)]="newListTitle" name="listTitle" required />
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">➕ Add List</button>
+  </form>
+
+  @if (store.lists().length === 0) {
+    <mat-card class="empty-card">
+      <p>No lists yet. Add one above!</p>
+    </mat-card>
+  }
+  <mat-list class="todo-lists">
+    @for (list of store.lists(); track list.id) {
+      <mat-list-item>
+        <a [routerLink]="['/todos', list.id]">
+          <strong>{{ list.title }}</strong>
+          <span class="summary">
+            🗒️ {{ list.tasks.length }} tasks, ✅ {{ getCompletedTaskCount(list.tasks) }}
+            completed
+          </span>
+        </a>
+      </mat-list-item>
+    }
+  </mat-list>
+</div>

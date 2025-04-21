@@ -1,0 +1,31 @@
+.task-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+
+  mat-checkbox {
+    font-weight: 500;
+  }
+
+  .details {
+    padding-left: 1.5rem;
+
+    h3 {
+      margin: 0;
+      font-size: 1.1rem;
+
+      &.completed {
+        text-decoration: line-through;
+        color: #999;
+      }
+    }
+
+    p {
+      margin: 0.25rem 0 0;
+      color: #666;
+      font-size: 0.95rem;
+    }
+  }
+}
