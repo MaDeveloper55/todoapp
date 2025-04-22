@@ -1,6 +1,40 @@
 # TodoApp
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.8.
+A modern, responsive To-Do List Manager built with Angular 17+, NgRx, SignalStore, and Angular Material.  
+This project demonstrates hybrid state management, and feature-based architecture in Angular development.
+Hybrid State Management: NgRx for global user data, Signals for local to-do state.
+
+## Features
+
+-  Manage multiple To-Do Lists
+-  Add, complete, and view tasks
+-  Summarized views and detailed pages
+-  State persisted with **LocalStorage**
+-  Global user feature with **NgRx**
+-  Fast local list/task state with **SignalStore**
+-  Beautiful UI using **Angular Material**
+-  Unit tests with **Jasmine & Karma**
+-  Code formatting with **Prettier**, linting with **ESLint**
+-  Lazy loading & standalone components as modern Angular practices.
+
+## Tech Stack
+
+- **Angular 19**
+- **TypeScript**
+- **NgRx** (Store, Effects, Devtools)
+- **Angular Signals / SignalStore**
+- **Angular Material**
+- **SCSS Modules**
+- **Prettier + ESLint**
+- **Karma + Jasmine**
+
+
+## Installation
+
+```bash
+git clone https://github.com/yourusername/todo-app.git
+cd todo-app
+npm install
 
 ## Development server
 
@@ -9,7 +43,6 @@ To start a local development server, run:
 ```bash
 ng serve
 ```
-
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
 ## Code scaffolding
@@ -44,15 +77,23 @@ To execute unit tests with the [Karma](https://karma-runner.github.io) test runn
 ng test
 ```
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
+To generate a code coverage report:
 
 ```bash
-ng e2e
+   ng test --code-coverage
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## Linting & Formatting
+
+To lint:
+```bash
+   npm run lint
+```
+
+To format all files:
+```bash
+   npm run format
+```
 
 ## Additional Resources
 
