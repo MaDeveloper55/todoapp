@@ -24,7 +24,7 @@ export default [
         'error',
         { type: 'element', prefix: 'app', style: 'kebab-case' },
       ],
-      'prettier/prettier': 'error', // ⚠️ This turns Prettier into ESLint rule
+      'prettier/prettier': 'error', 
     },
   },
 ];

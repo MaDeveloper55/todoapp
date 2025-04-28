@@ -28,7 +28,15 @@ export class TodoSignalStore {
     };
     const updated = [...this.todoLists(), newList];
     this.todoLists.set(updated);
-    this.persist();
+    this.todoService.saveTodoLists(updated);
+    this.todoService.createTodoList(title).subscribe({
+      next: (list) => {
+        console.log('List successfully created on backend:', list);
+      },
+      error: (err) => {
+        console.error('Failed to create list on backend:', err);
+      },
+    });
   }
 
   addTask(listId: string, title: string, description: string) {
@@ -49,7 +57,15 @@ export class TodoSignalStore {
         : list
     );
     this.todoLists.set(updated);
-    this.persist();
+    this.todoService.saveTodoLists(updated); // Save to LocalStorage
+    this.todoService.addTask(listId, { id: uuidv4(), title, description }).subscribe({
+      next: (task) => {
+        console.log('Task successfully added to backend:', task);
+      },
+      error: (err) => {
+        console.error('Failed to add task on backend:', err);
+      },
+    });
   }
 
   toggleTask(listId: string, taskId: string) {
@@ -64,10 +80,6 @@ export class TodoSignalStore {
         : list
     );
     this.todoLists.set(updated);
-    this.persist();
-  }
-
-  private persist() {
-    this.todoService.saveTodoLists(this.todoLists());
+    this.todoService.saveTodoLists(updated);
   }
 }
